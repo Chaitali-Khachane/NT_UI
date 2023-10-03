@@ -63,7 +63,7 @@ function AppHeader() {
                         return <item href={value.path} id={value.id} name={value.label} />
                     })}
                 </item>
-                <item name='Infra Provision tool' href='/about' />
+                <item name='Infrastructure' href='/about' />
             </nav>}
             // navLinks={<nav>{data.header.map((value) => {
             //        return <item  href={value.path} id={value.id} name={value.label} />

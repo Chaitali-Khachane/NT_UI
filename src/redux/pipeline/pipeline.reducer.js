@@ -1,5 +1,5 @@
 import { Icon } from "@nt/dds-react"
-import { SET_API_DATA, SET_PIPELINE_LIST, CHANGE_DETAIL } from "./pipeline.type"
+import { SET_API_DATA, SET_PIPELINE_LIST, CHANGE_DETAIL, SET_DATA_SOURCE_API_DATA, SET_SOURCE_TABLE_API_DATA,SET_DOMAIN_LIST,SET_TABLE_SCHEMA_LIST } from "./pipeline.type"
 import { produce } from "immer"
 import React from 'react'
 const INITIAL_DATA = {
@@ -9,13 +9,32 @@ const INITIAL_DATA = {
             columnDef: [],
             pipelineList: [],
             hideColumns: ["entity_id", "domain_id", "source_type", "source_id", "source_name", "cron_schedule", "pipeline_id", "pipeline_name", "created_date", "last_modified_date", "user_id", "user_email", "entity_system_name"]
+        },
+        apiData: {
+            sourceList: [],
+            sourceTableList: [],
+            domainList:[],
+            schemaDiscoveryList:[]
+        },
+        step1FormData: {
+            sourceId:"",
+            sourceType: "",
+            sourceName: "",
+            sourceObject: "",
+            domain:"",
+            entity:"",
+            entityDescription:"",
+            businessTag:""
+        },
+        step2FormData: {
+            schemaTable:[]
         }
 
     }
 }
 let DataFormatter = (field, value) => {
-//alert(field)
-//alert(field.toLowerCase())
+    //alert(field)
+    //alert(field.toLowerCase())
     if (field.toLowerCase().indexOf("status") != -1) {
         //alert("in if")
         if (value.toLowerCase() == "failed") {
@@ -99,13 +118,57 @@ const PipelineReducer = (state = INITIAL_DATA, { type, payload }) => {
 
             return produce(state, (draft) => {
                 draft.apiField[payload.apiField][payload.field] = payload.data
+                if(payload.field == "sourceObject"){
+                    var afterDot = payload.data.substr( payload.data.indexOf('.') + 1 );
+                    // alert(afterDot.toLowerCase())
+                    draft.apiField[payload.apiField].entity=afterDot.toLowerCase()
+                }
             }
 
             )
         }
-        case SET_PIPELINE_LIST:{
-            return produce(state, (draft)=>{
+        case SET_PIPELINE_LIST: {
+            return produce(state, (draft) => {
                 draft.apiField[payload.apiField].pipelineList = payload.data
+            })
+        }
+        case SET_DATA_SOURCE_API_DATA: {
+            return produce(state, (draft) => {
+                draft.apiField.step1FormData.sourceType = "RDBMS"
+                console.log("Data display")
+                console.log(payload.data)
+                draft.apiField[payload.apiField].sourceList.length = 0
+                payload.data.map((valueObj) => {
+                    if (valueObj.source_type == "database_azuresql" || valueObj.source_type == "database_snowflake") {
+                        draft.apiField[payload.apiField].sourceList.push(valueObj)
+                    }
+                })
+            })
+        }
+        case SET_SOURCE_TABLE_API_DATA: {
+            return produce(state, (draft) => {
+                draft.apiField[payload.apiField].sourceTableList = payload.data
+            })
+        }
+        case SET_DOMAIN_LIST:{
+            return produce(state, (draft) => {
+                draft.apiField[payload.apiField].domainList = payload.data
+            })
+        }
+        case SET_TABLE_SCHEMA_LIST:{
+            return produce(state, (draft) => {
+                draft.apiField[payload.apiField].schemaDiscoveryList = payload.data
+                let keys = Object.keys(payload.data)
+                
+                draft.apiField.step2FormData.schemaTable.length = 0
+                for(let i=0;i<keys.length;i++){
+                    let schemObj = {}
+                    Object.assign(schemObj,{isPrimary:false})
+                    Object.assign(schemObj,{name:keys[i]})
+                    Object.assign(schemObj,payload.data[keys[i]])
+                    draft.apiField.step2FormData.schemaTable.push(schemObj)
+                }
+               
             })
         }
         default: {
