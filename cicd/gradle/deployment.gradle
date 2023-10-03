@@ -1,0 +1,60 @@
+apply plugin: 'cloudfoundry'
+
+configurations {
+    webArchive
+}
+configurations.webArchive {
+    resolutionStrategy { cacheChangingModulesFor 1, 'minutes' }
+}
+dependencies {
+    println "WebArchive dependency is ${group}:${archivesBaseName}:${version}@zip" 
+    webArchive("${group}:${archivesBaseName}:${version}@zip") {
+        changing = true
+    }
+    repositories {
+        maven {
+           url = (project.hasProperty('isRelease') && project.getProperty('isRelease').toBoolean()) ? nexusReleaseUrl : nexusSnapshotsUrl
+        }       
+    }
+}
+
+task fetchArtifact(type: Copy) {
+    dependsOn configurations.webArchive
+    from {
+        configurations.webArchive.collect { zipTree(it) }
+    }
+    into "${buildDir}/download"
+}
+
+cloudfoundry {
+//  The following values for 'file' and 'host' do NOT need to be changed
+    file = file("${buildDir}/download/${archivesBaseName}.zip")
+    host = "${archivesBaseName}" + "${host_qualifier}"
+
+//  Do NOT change: authentication credentials are configured in Bamboo Variables Tab
+    username = "${System.env.NEXUSUSER}"
+    password = "${System.env.NEXUSPASS}"
+
+//  Applications must CHANGE the following block of settings
+    target = 'https://api.run.system.pcf.ntrs.com'
+    organization = 'channel-management'
+    space = 'platform-services' + "${host_qualifier}"
+    application = "xps-demo-application"
+
+//  The following settings can be customized as the app requires
+    instances = 1
+    memory = 512
+    diskQuota = 512
+    trustSelfSignedCerts = true
+    startApp = true
+    //command = 'node server.js -p 3000'
+    //buildpack = 'nodejs_buildpack'
+}
+
+cfPush.dependsOn fetchArtifact{
+    println "Download directory is ${buildDir}/download/"
+    FileCollection downloadFileCollection = files { file("${buildDir}/download/").listFiles() }
+    downloadFileCollection.each {
+        println "Download directory file: " + it
+    }
+}

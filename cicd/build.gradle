@@ -1,0 +1,44 @@
+apply plugin: "java"
+
+description = 'NT UX Platform'
+project.buildDir = 'buildgradle'
+
+buildscript {
+    ext {
+        nexusUrl = "https://repository.ntrs.com:8444/nexus/content/repositories/central"
+        nexusReleaseUrl = "https://repository.ntrs.com:8444/nexus/content/repositories/releases"
+        nexusSnapshotsUrl = "https://repository.ntrs.com:8444/nexus/content/repositories/snapshots/"
+
+        defaultVersion = '1.0'
+        snapshotSuffix = '-SNAPSHOT'
+        unauthorized = 'unauthorized'
+        host_qualifier = project.hasProperty('host_qualifier') ? '-' + project.getProperty('host_qualifier') : ''
+    }
+    repositories {
+        maven {
+            url nexusUrl
+        }
+    }
+    dependencies {
+        classpath "org.cloudfoundry:cf-gradle-plugin:1.1.3"
+    }
+}
+
+
+// Applications should CHANGE the package TLA in 'group' and 'archivesBaseName'
+group "com.ntrs.xps"
+archivesBaseName = "xps-demo-application"
+
+if (project.hasProperty('isRelease') && project.getProperty('isRelease').toBoolean()) {
+    version = (project.hasProperty('releaseLabel')) ? project.getProperty('releaseLabel').replaceAll(snapshotSuffix, "") : defaultVersion
+} else {
+    if (project.hasProperty('releaseLabel') && !project.getProperty('releaseLabel').isEmpty()) {
+        version = (project.getProperty('releaseLabel').contains(snapshotSuffix)) ? project.getProperty('releaseLabel') : project.getProperty('releaseLabel') + snapshotSuffix
+    } else {
+        version = defaultVersion + snapshotSuffix
+    }
+}
+
+apply from: "$projectDir/gradle/test.gradle"
+apply from: "$projectDir/gradle/distribute.gradle"
+apply from: "$projectDir/gradle/deployment.gradle"

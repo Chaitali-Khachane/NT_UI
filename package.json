@@ -1,0 +1,61 @@
+{
+  "name": "Demo_Project",
+  "version": "0.1.0",
+  "license": "SEE LICENSE IN LICENSE",
+  "scripts": {
+    "build": "xps build",
+    "build:checkmarx": "xps build --checkmarx",
+    "lint": "eslint  \"{src,__test__}/**/*.{js,jsx}\"",
+    "lint:fixjs": "eslint  \"{src,__test__}/**/*.{js,jsx}\" --fix",
+    "start": "cross-env NT_ENV=development xps dev",
+    "test": "xps test"
+  },
+  "husky": {
+    "hooks": {
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS",
+      "pre-push": "npm run test && npm run lint"
+    }
+  },
+  "dependencies": {
+    "@axe-core/react": "4.3.1",
+    "@nt/dds-datagrid": "^3.0.0-beta.14",
+    "@nt/dds-react": "^2.0.0",
+    "@nt/dds-style": "^2.6.0",
+    "@nt/xps-base-app": "4.0.4",
+    "@redux-devtools/core": "^3.13.1",
+    "@reduxjs/toolkit": "^1.9.5",
+    "axios": "^1.5.0",
+    "immer": "^10.0.2",
+    "prop-types": "15.7.2",
+    "react": "16.14.0",
+    "react-axe": "3.5.4",
+    "react-dom": "16.14.0",
+    "react-hot-loader": "4.6.3",
+    "react-redux": "^8.1.2",
+    "react-router-dom": "5.1.2",
+    "redux": "^4.2.1",
+    "xps-grid": "^2.2.1",
+    "xps-style": "^1.15.1"
+  },
+  "devDependencies": {
+    "@nt/xps-dev-utils": "^4.0.3",
+    "@types/jest": "23.3.9"
+  },
+  "browserslist": {
+    "development": [
+      "last 2 chrome versions",
+      "last 2 firefox versions",
+      "last 2 edge versions"
+    ],
+    "production": [
+      ">1%",
+      "last 4 versions",
+      "Firefox ESR",
+      "not ie < 11"
+    ]
+  },
+  "resolutions": {
+    "d3-color": "3.1.0"
+  },
+  "homepage": "/xps"
+}

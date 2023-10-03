@@ -1,0 +1,5 @@
+{
+  "extends": [
+    "@nt/eslint-config-xps-base"
+  ]
+}

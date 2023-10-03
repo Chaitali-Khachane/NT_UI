@@ -1,0 +1,2 @@
+export const SET_API_DATA = "RWS/SET_API_DATA@HOME"
+export const GET_API_DATA = "RWS/GET_API_DATA@HOME"

@@ -1,0 +1,66 @@
+{
+    "tableData":[
+        {
+            "source_id": 33,
+            "source_name": "Sales Database",
+            "source_type": "database_azuresql",
+            "source_desc": "Source for Sales Database"
+        },
+        {
+            "source_id": 34,
+            "source_name": "Datalake Storage",
+            "source_type": "storage_adls",
+            "source_desc": "Source for Datalake storage"
+        },
+        {
+            "source_id": 35,
+            "source_name": "Datalake",
+            "source_type": "datalake",
+            "source_desc": "Internal Source for Datalake"
+        },
+        {
+            "source_id": 36,
+            "source_name": "Snowflake Database",
+            "source_type": "database_snowflake",
+            "source_desc": "source for snowflake source"
+    
+        }
+    ],
+    "connectors" : {
+        "status": "Success",
+        "result": [
+            {
+                "connector_name": "azuresql",
+                "connector_type": "database",
+                "connector_desc": "Connector for Azure Sql Database"
+            },
+            {
+                "connector_name": "adls",
+                "connector_type": "storage",
+                "connector_desc": "Connector for Data Lake Storage"
+            }
+        ]
+    },
+    "connectoreParams":{
+        "status": "Success",
+        "result": {
+          "azuresql": [
+            "server_name",
+            "database_name",
+            "username",
+            "password"
+          ],
+          "adls": [
+            "account_url",
+            "account_key"
+          ],
+          "snowflake": [
+            "account_name",
+            "database_name",
+            "username",
+            "warehouse",
+            "password"
+          ]
+        }
+      }
+}

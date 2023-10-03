@@ -1,0 +1,4 @@
+task clientTest(type: Exec) {
+}
+
+test.dependsOn clientTest

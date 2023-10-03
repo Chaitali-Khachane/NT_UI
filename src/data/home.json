@@ -1,0 +1,236 @@
+{
+     "response" : {
+    "status": "Success",
+    "result": {
+      "entity_count": 24,
+      "domain_count": 8,
+      "entity_run_stats": {
+        "FAILED": 11,
+        "SUCCESS": 10,
+        "STARTED": 1
+      },
+      "entity_run_details": [
+        {
+          "entity_id": 950,
+          "domain_name": "SalesLT",
+          "entity_name": "tbl_auth_config_test_PO",
+          "pipeline_name": "database_ingestion_pipeline",
+          "pipeline_type": "database_ingestion",
+          "start_time": "2023-09-21 06:07:19",
+          "end_time": "2023-09-21 06:28:48",
+          "last_run_status": "FAILED"
+        },
+        {
+          "entity_id": 913,
+          "domain_name": "SalesLT",
+          "entity_name": "salesorderdetail",
+          "pipeline_name": "database_ingestion_pipeline",
+          "pipeline_type": "database_ingestion",
+          "start_time": "2023-09-21 04:10:13",
+          "end_time": "2023-09-21 04:30:07",
+          "last_run_status": "SUCCESS"
+        },
+        {
+          "entity_id": 895,
+          "domain_name": "SalesLT",
+          "entity_name": "product",
+          "pipeline_name": "database_ingestion_pipeline",
+          "pipeline_type": "database_ingestion",
+          "start_time": "2023-09-21 03:37:20",
+          "end_time": "2023-09-21 03:50:34",
+          "last_run_status": "FAILED"
+        },
+        {
+          "entity_id": 942,
+          "domain_name": "SalesLT",
+          "entity_name": "productmodel",
+          "pipeline_name": "database_ingestion_pipeline",
+          "pipeline_type": "database_ingestion",
+          "start_time": "2023-09-20 16:13:37",
+          "end_time": "2023-09-20 16:33:41",
+          "last_run_status": "SUCCESS"
+        },
+        {
+          "entity_id": 938,
+          "domain_name": "SalesLT",
+          "entity_name": "product_test_file",
+          "pipeline_name": "file_ingestion_pipeline",
+          "pipeline_type": "file_ingestion",
+          "start_time": "2023-09-20 14:09:12",
+          "end_time": "2023-09-20 14:29:16",
+          "last_run_status": "SUCCESS"
+        },
+        {
+          "entity_id": 897,
+          "domain_name": "filedb",
+          "entity_name": "product_file",
+          "pipeline_name": "file_ingestion_pipeline",
+          "pipeline_type": "file_ingestion",
+          "start_time": "2023-09-20 09:37:54",
+          "end_time": "2023-09-20 09:50:46",
+          "last_run_status": "FAILED"
+        },
+        {
+          "entity_id": 915,
+          "domain_name": "sasdb",
+          "entity_name": "airline",
+          "pipeline_name": "file_ingestion_pipeline",
+          "pipeline_type": "file_ingestion",
+          "start_time": "2023-09-19 09:36:22",
+          "end_time": "2023-09-19 09:56:40",
+          "last_run_status": "SUCCESS"
+        },
+        {
+          "entity_id": 918,
+          "domain_name": "filedb",
+          "entity_name": "product_test",
+          "pipeline_name": "database_ingestion_pipeline",
+          "pipeline_type": "database_ingestion",
+          "start_time": "2023-09-15 08:17:16",
+          "end_time": "2023-09-15 08:35:16",
+          "last_run_status": "FAILED"
+        },
+        {
+          "entity_id": 917,
+          "domain_name": "filedb",
+          "entity_name": "productmodel_test",
+          "pipeline_name": "database_ingestion_pipeline",
+          "pipeline_type": "database_ingestion",
+          "start_time": "2023-09-15 06:25:39",
+          "end_time": "2023-09-15 06:58:59",
+          "last_run_status": "FAILED"
+        },
+        {
+          "entity_id": 916,
+          "domain_name": "filedb",
+          "entity_name": "salesorderdetail_test",
+          "pipeline_name": "database_ingestion_pipeline",
+          "pipeline_type": "database_ingestion",
+          "start_time": "2023-09-15 02:58:00",
+          "end_time": "2023-09-15 03:16:27",
+          "last_run_status": "FAILED"
+        },
+        {
+          "entity_id": 907,
+          "domain_name": "csvdb",
+          "entity_name": "testcsv",
+          "pipeline_name": "file_ingestion_pipeline",
+          "pipeline_type": "file_ingestion",
+          "start_time": "2023-09-14 17:28:59",
+          "end_time": "2023-09-14 17:37:24",
+          "last_run_status": "FAILED"
+        },
+        {
+          "entity_id": 912,
+          "domain_name": "SalesLT",
+          "entity_name": "product_test",
+          "pipeline_name": "file_ingestion_pipeline",
+          "pipeline_type": "file_ingestion",
+          "start_time": "2023-09-14 14:39:05",
+          "end_time": "2023-09-14 14:58:48",
+          "last_run_status": "SUCCESS"
+        },
+        {
+          "entity_id": 911,
+          "domain_name": "SalesLT",
+          "entity_name": "customeraddress_sample_test",
+          "pipeline_name": "database_ingestion_pipeline",
+          "pipeline_type": "database_ingestion",
+          "start_time": "2023-09-14 14:17:41",
+          "end_time": "2023-09-14 14:31:15",
+          "last_run_status": "SUCCESS"
+        },
+        {
+          "entity_id": 910,
+          "domain_name": "SalesLT",
+          "entity_name": "customer_sample_test_1",
+          "pipeline_name": "database_ingestion_pipeline",
+          "pipeline_type": "database_ingestion",
+          "start_time": "2023-09-14 14:10:01",
+          "end_time": "2023-09-14 14:31:14",
+          "last_run_status": "SUCCESS"
+        },
+        {
+          "entity_id": 898,
+          "domain_name": "SalesLT",
+          "entity_name": "product",
+          "pipeline_name": "database_ingestion_pipeline",
+          "pipeline_type": "database_ingestion",
+          "start_time": "2023-09-14 12:30:53",
+          "end_time": null,
+          "last_run_status": "STARTED"
+        },
+        {
+          "entity_id": 906,
+          "domain_name": "data_loads",
+          "entity_name": "rental",
+          "pipeline_name": "database_ingestion_pipeline",
+          "pipeline_type": "database_ingestion",
+          "start_time": "2023-09-12 14:56:59",
+          "end_time": "2023-09-12 15:17:34",
+          "last_run_status": "SUCCESS"
+        },
+        {
+          "entity_id": 901,
+          "domain_name": "filedb",
+          "entity_name": "testTransform",
+          "pipeline_name": "data_transformation_pipeline",
+          "pipeline_type": "data_transformation",
+          "start_time": "2023-09-12 08:26:01",
+          "end_time": "2023-09-12 08:45:47",
+          "last_run_status": "SUCCESS"
+        },
+        {
+          "entity_id": 905,
+          "domain_name": "SalesLT",
+          "entity_name": "buildversion",
+          "pipeline_name": "database_ingestion_pipeline",
+          "pipeline_type": "database_ingestion",
+          "start_time": "2023-09-01 15:39:34",
+          "end_time": "2023-09-01 15:41:19",
+          "last_run_status": "FAILED"
+        },
+        {
+          "entity_id": 904,
+          "domain_name": "SalesLT",
+          "entity_name": "buildversion",
+          "pipeline_name": "database_ingestion_pipeline",
+          "pipeline_type": "database_ingestion",
+          "start_time": "2023-09-01 14:35:20",
+          "end_time": "2023-09-01 14:36:38",
+          "last_run_status": "FAILED"
+        },
+        {
+          "entity_id": 903,
+          "domain_name": "filedb",
+          "entity_name": "usernewdata_test_fileING",
+          "pipeline_name": "file_ingestion_pipeline",
+          "pipeline_type": "file_ingestion",
+          "start_time": "2023-09-01 11:22:13",
+          "end_time": "2023-09-01 11:23:10",
+          "last_run_status": "FAILED"
+        },
+        {
+          "entity_id": 902,
+          "domain_name": "filedb",
+          "entity_name": "buildversion_nt_Test",
+          "pipeline_name": "database_ingestion_pipeline",
+          "pipeline_type": "database_ingestion",
+          "start_time": "2023-09-01 11:14:12",
+          "end_time": "2023-09-01 11:15:25",
+          "last_run_status": "FAILED"
+        },
+        {
+          "entity_id": 896,
+          "domain_name": "filedb",
+          "entity_name": "product_transformation",
+          "pipeline_name": "data_transformation_pipeline",
+          "pipeline_type": "data_transformation",
+          "start_time": "2023-08-30 07:33:59",
+          "end_time": "2023-08-30 07:37:19",
+          "last_run_status": "SUCCESS"
+        }
+      ]
+    }
+  }
+}

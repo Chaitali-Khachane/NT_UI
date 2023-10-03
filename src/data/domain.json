@@ -1,0 +1,42 @@
+{
+    "tableData":{
+        "status": "Success",
+        "result": [
+          {
+            "domain_id": 86,
+            "domain_name": "SalesLT",
+            "domain_desc": "SalesLT"
+          },
+          {
+            "domain_id": 87,
+            "domain_name": "filedb",
+            "domain_desc": "sample"
+          },
+          {
+            "domain_id": 88,
+            "domain_name": "data_loads",
+            "domain_desc": "data_loads"
+          },
+          {
+            "domain_id": 89,
+            "domain_name": "csvdb",
+            "domain_desc": "csvdb"
+          },
+          {
+            "domain_id": 90,
+            "domain_name": "sasdb",
+            "domain_desc": "sasdb"
+          },
+          {
+            "domain_id": 91,
+            "domain_name": "string",
+            "domain_desc": "string"
+          },
+          {
+            "domain_id": 95,
+            "domain_name": "test_db_delete",
+            "domain_desc": "ac"
+          }
+        ]
+      }
+}

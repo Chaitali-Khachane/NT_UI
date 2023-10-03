@@ -1,0 +1,29 @@
+{
+    "header": [
+        {
+            "id": "datasource",
+            "label": "DataSource",
+            "path": "/datasource"
+        },
+        {
+            "id": "domain",
+            "label": "Domain",
+            "path": "/domain"
+        },
+        {
+            "id": "pipeline",
+            "label": "Pipeline",
+            "path": "/pipeline"
+        },
+        {
+            "id": "analyze",
+            "label": "Analyze",
+            "path": "/analyze"
+        },
+        {
+            "id": "service",
+            "label": "Service",
+            "path": "/service"
+        }
+    ]
+}

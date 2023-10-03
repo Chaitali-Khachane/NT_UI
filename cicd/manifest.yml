@@ -1,0 +1,10 @@
+instances: 1
+diskQuota: 64M
+startApp: true
+applications:
+- name: xps-demo-application
+  path: @deployableArtifactName@
+  #command: node server.js -p 3000
+  #buildpack: nodejs_buildpack
+memory: 32M
+timeout: 180
